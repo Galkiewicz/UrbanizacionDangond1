@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espectacular Lote en Venta · 34,453 m² R-3 · Valledupar</title>
+<style>
+:root{
+    --navy:#0d3980;
+    --teal:#2ba5a5;
+    --ink:#2f3e4e;
+    --muted:#5a6b7d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#000;color:var(--ink)}
+
+/* ===== FRAMES BACKGROUND ===== */
+.video-background{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:1;background:#000;overflow:hidden}
+.frame-image{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ===== SCROLL WRAPPER ===== */
+.content-wrapper{position:absolute;top:0;left:0;width:100%;height:100%;overflow-y:scroll;overflow-x:hidden;z-index:10;-ms-overflow-style:none;scrollbar-width:none}
+.content-wrapper::-webkit-scrollbar{display:none}
+.content-inner{padding:104px 5vw 70px}
+
+/* ===== NAVBAR ===== */
+nav{position:fixed;top:0;left:0;right:0;height:64px;background:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:0 2rem;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.28)}
+.nav-brand{color:#fff;font-weight:800;font-size:.95rem;letter-spacing:.02em;white-space:nowrap}
+.nav-links{display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.83rem;font-weight:600;padding:.45rem .75rem;border-radius:8px;white-space:nowrap;transition:.25s}
+.nav-links a:hover{background:rgba(255,255,255,.14);color:#fff}
+.nav-links a.active{background:#fff;color:var(--navy)}
+
+/* ===== SECTIONS / CARDS ===== */
+section{display:flex;justify-content:flex-start;margin-bottom:70px;scroll-margin-top:88px}
+section:last-of-type{margin-bottom:0}
+.card{width:32vw;min-width:420px;max-width:560px;background:rgba(255,255,255,.18);backdrop-filter:blur(32px) saturate(1.4);-webkit-backdrop-filter:blur(32px) saturate(1.4);border:1px solid rgba(255,255,255,.25);border-radius:28px;padding:2.6rem;box-shadow:0 20px 60px rgba(0,0,0,.28);animation:cardIn .7s ease-out;color:#fff}
+.card h2,.card h1,.card .hero-sub,.card h3{color:#fff}
+.card p,.card .card-sub,.card .kpi-desc,.card .media-caption,.card .location-item p,.card .value-card p{color:rgba(255,255,255,.88)}
+.card .kpi-number{color:#fff}
+.card .kpi-label{color:var(--teal)}
+.card .form-group label{color:#fff}
+.card .form-group input,.card .form-group textarea{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff}
+.card .form-group input::placeholder,.card .form-group textarea::placeholder{color:rgba(255,255,255,.45)}
+.card .kpi-card,.card .value-card,.card .document-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.card .document-card h3{color:#fff}
+.card .contact-info{border-top-color:rgba(255,255,255,.2)}
+.card .contact-info p{color:rgba(255,255,255,.8)}
+.card-hero{min-height:670px;display:flex;flex-direction:column;justify-content:center}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:.6rem}
+h1{font-size:1.9rem;color:var(--navy);line-height:1.15;font-weight:800;margin-bottom:.55rem}
+.hero-sub{font-size:1.08rem;color:var(--navy);font-weight:700;margin-bottom:1rem;opacity:.9}
+h2{font-size:1.65rem;color:var(--navy);font-weight:800;line-height:1.2;margin-bottom:.35rem}
+.card-sub{font-size:.95rem;color:var(--muted);margin-bottom:1.3rem}
+p{font-size:.95rem;line-height:1.6;color:var(--ink)}
+
+.button-group{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
+.btn{padding:.85rem 1.7rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.92rem;border:none;cursor:pointer;transition:.3s}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:#092a61;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-secondary:hover{background:rgba(13,57,128,.08);transform:translateY(-2px)}
+
+/* ===== KPI ===== */
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
+.kpi-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.1rem}
+.kpi-number{font-size:1.45rem;font-weight:800;color:var(--navy)}
+.kpi-label{font-size:.74rem;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin:.2rem 0 .45rem}
+.kpi-desc{font-size:.8rem;line-height:1.45;color:var(--muted)}
+
+/* ===== MEDIA ===== */
+.media{width:100%;border-radius:16px;overflow:hidden;margin:1.2rem 0 .5rem;box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.media img{width:100%;display:block}
+.media-caption{font-size:.76rem;color:#7a8a99;text-align:center;margin-bottom:1rem}
+
+/* ===== UBICACIÓN ===== */
+.location-list{display:grid;grid-template-columns:1fr;gap:.85rem;margin-top:1.2rem}
+.location-item{display:flex;align-items:center;gap:.7rem}
+.location-icon{width:9px;height:9px;background:var(--teal);border-radius:50%;flex-shrink:0}
+.location-item p{font-size:.92rem}
+
+/* ===== VALOR ===== */
+.value-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.2rem}
+.value-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.3rem}
+.value-card h3{font-size:1.02rem;font-weight:800;color:var(--navy);margin-bottom:.45rem}
+.value-card p{font-size:.87rem;line-height:1.5;color:var(--muted)}
+
+/* ===== GALERÍA ===== */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.2rem}
+.gallery-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-label{position:absolute;left:.6rem;bottom:.6rem;background:rgba(13,57,128,.88);color:#fff;font-size:.68rem;font-weight:600;padding:.3rem .6rem;border-radius:7px}
+
+/* ===== NORMATIVA ===== */
+.documents-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
+.document-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.2rem;text-align:center}
+.document-icon{font-size:2rem;margin-bottom:.6rem}
+.document-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.document-card a{color:var(--teal);text-decoration:none;font-weight:700;font-size:.83rem}
+
+/* ===== CONTACTO ===== */
+.contact-form{margin-top:1.2rem}
+.form-group{display:flex;flex-direction:column;margin-bottom:1rem}
+.form-group label{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.form-group input,.form-group textarea{padding:.8rem;background:#fff;border:1px solid rgba(13,57,128,.25);border-radius:8px;font-family:inherit;font-size:.93rem;color:var(--ink)}
+.form-group input:focus,.form-group textarea:focus{outline:2px solid var(--teal);border-color:transparent}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;padding:1rem;background:var(--navy);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:.3s}
+.form-submit:hover{background:#092a61}
+.contact-info{text-align:center;margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(13,57,128,.15);font-size:.9rem;color:var(--muted)}
+
+footer{position:relative;z-index:10;background:var(--navy);color:#fff;padding:1.8rem 2rem;text-align:center;font-size:.83rem}
+
+@media (max-width:1024px){
+    .content-inner{padding:96px 1.2rem 70px}
+    .card{width:100%;min-width:auto;padding:1.8rem}
+    h1{font-size:1.55rem}
+    h2{font-size:1.4rem}
+    nav{padding:0 1rem;gap:.8rem}
+    .nav-brand{font-size:.82rem}
+}
+</style>
+</head>
+<body>
+
+<!-- FRAMES BACKGROUND -->
+<div class="video-background">
+    <img id="frameImage" class="frame-image" src="assets/frames/frame-0001.jpg" alt="Vista aérea del lote">
+</div>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-brand">LOTE EN VENTA DIRECTA</div>
+    <div class="nav-links" id="navLinks">
+        <a href="#hero" class="active">Inicio</a>
+        <a href="#indicadores">Indicadores</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#valor">Valor</a>
+        <a href="#potencial">Potencial</a>
+        <a href="#galeria">Galería</a>
+        <a href="#normativa">Normativa</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content-wrapper" id="wrapper">
+<div class="content-inner">
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="card card-hero">
+            <h1>ESPECTACULAR LOTE EN VENTA</h1>
+            <div class="hero-sub">34,453 m² | Activo para desarrollo R-3</div>
+            <p>Suelo urbanizable con concepto normativo vigente, infraestructura consolidada y viabilidad confirmada. Una oportunidad única para transformar el espacio urbano de Valledupar.</p>
+            <div class="button-group">
+                <a href="#contacto" class="btn btn-primary nav-jump">Solicitar información</a>
+                <a href="#normativa" class="btn btn-secondary nav-jump">Especificaciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDICADORES -->
+    <section id="indicadores">
+        <div class="card">
+            <h2>Indicadores clave</h2>
+            <div class="card-sub">Los números que definen esta oportunidad de inversión</div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-number">34,453 m²</div>
+                    <div class="kpi-label">Área neta total</div>
+                    <div class="kpi-desc">3.45 hectáreas en un solo globo de terreno urbano, listo para plan de desarrollo.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">R-3</div>
+                    <div class="kpi-label">Clasificación de suelo</div>
+                    <div class="kpi-desc">Residencial con comercio y servicios especializados. Sector Normativo 23, Comuna 2.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">$335.000</div>
+                    <div class="kpi-label">Precio por m²</div>
+                    <div class="kpi-desc">Venta directa con propietarios. Valor total aproximado: $11.546 millones COP.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">0.35</div>
+                    <div class="kpi-label">Índice de Ocupación</div>
+                    <div class="kpi-desc">Permite hasta 12,058 m² de huella construida en primera planta.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">2.0</div>
+                    <div class="kpi-label">Índice de Construcción</div>
+                    <div class="kpi-desc">Hasta 68,906 m² de área construible total en altura, según POT vigente.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">✓ Libre</div>
+                    <div class="kpi-label">Estado jurídico</div>
+                    <div class="kpi-desc">Libertad y tradición vigente, sin gravámenes, hipotecas ni afectaciones.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion">
+        <div class="card">
+            <h2>Ubicación estratégica</h2>
+            <div class="card-sub">Carrera 5 con Calle 47 · Comuna 2 · Perímetro urbano</div>
+            <div class="media"><img src="assets/foto/Referencia_lote_02.png" alt="Mapa catastral del lote"></div>
+            <div class="media-caption">Delimitación catastral A·B·C·D — entre Calles 44B, 45 y 47, y Carreras 5 y 5ª</div>
+            <div class="media"><img src="assets/foto/Gemini_Generated_Image_jecruljecruljecr.png" alt="Linderos por vía"></div>
+            <div class="media-caption">Linderos y vías perimetrales del predio</div>
+            <div class="location-list">
+                <div class="location-item"><div class="location-icon"></div><p>Frente a la Policía Metropolitana de Valledupar</p></div>
+                <div class="location-item"><div class="location-icon"></div><p>5 minutos del Centro de la ciudad</p></div>
+                <div class="location-item"><div class="location-icon"></div><p>Hospitales y clínicas cercanas</p></div>
+                <div class="location-item"><div class="location-icon"></div><p>Universidades e instituciones educativas</p></div>
+                <div class="location-item"><div class="location-icon"></div><p>Terminal de transportes</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALOR -->
+    <section id="valor">
+        <div class="card">
+            <h2>¿Por qué este activo?</h2>
+            <div class="card-sub">Cuatro atributos que sustentan su valor de desarrollo</div>
+            <div class="media"><img src="assets/foto/lote-estacion01.png" alt="Entorno institucional"></div>
+            <div class="media-caption">Vía perimetral — costado Policía Metropolitana de Valledupar</div>
+            <div class="value-grid">
+                <div class="value-card"><h3>Frente completo sobre vía</h3><p>Acceso directo desde Carrera 5 y Calle 47, con frentes sobre las cuatro vías perimetrales.</p></div>
+                <div class="value-card"><h3>Barrio consolidado</h3><p>Entorno residencial e institucional plenamente desarrollado, con seguridad reforzada.</p></div>
+                <div class="value-card"><h3>Servicios disponibles</h3><p>Redes de acueducto, alcantarillado y energía en el perímetro inmediato del predio.</p></div>
+                <div class="value-card"><h3>Geometría eficiente</h3><p>Forma regular de manzana completa que optimiza el diseño urbanístico y la ocupación.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POTENCIAL -->
+    <section id="potencial">
+        <div class="card">
+            <h2>Potencial de desarrollo</h2>
+            <div class="card-sub">Entre 500 y 700 unidades residenciales con comercio</div>
+            <div class="media"><img src="assets/foto/potencial_desarrollo.png" alt="Render conceptual de desarrollo"></div>
+            <div class="media-caption">Render conceptual — imagen ilustrativa del potencial urbanístico</div>
+            <p>Con los índices R-3 vigentes (I.O. 0.35 · I.C. 2.0), el predio admite hasta 68,906 m² construibles: vivienda multifamiliar en altura, complementada con comercio y servicios especializados en primeros pisos.</p>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+        <div class="card">
+            <h2>Galería del lote</h2>
+            <div class="card-sub">Registro aéreo y perimetral del predio</div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="assets/foto/esquina_B_aerea_sin_marca.png" alt="Vista aérea"><div class="gallery-label">Vista aérea general</div></div>
+                <div class="gallery-item"><img src="assets/foto/esquina_B_aerea_.png" alt="Delimitación aérea"><div class="gallery-label">Delimitación A·B·C·D</div></div>
+                <div class="gallery-item"><img src="assets/foto/Esquina_B.png" alt="Esquina B"><div class="gallery-label">Esquina B</div></div>
+                <div class="gallery-item"><img src="assets/foto/Esquina_C.png" alt="Esquina C"><div class="gallery-label">Esquina C</div></div>
+                <div class="gallery-item"><img src="assets/foto/esquina_d.png" alt="Esquina D"><div class="gallery-label">Esquina D</div></div>
+                <div class="gallery-item"><img src="assets/foto/esquina_d_aerea.png" alt="Vista aérea esquina D"><div class="gallery-label">Contexto urbano</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NORMATIVA -->
+    <section id="normativa">
+        <div class="card">
+            <h2>Marco normativo</h2>
+            <div class="card-sub">Concepto de Norma Urbana OAPM-3041-2026 · Alcaldía de Valledupar</div>
+            <p>Sector Normativo 23, Comuna 2. Clasificación R-3 con Tratamiento Urbanístico de Desarrollo. POT: Acuerdo 011/2015, modificado por Acuerdo 014/2023, compilado en Decreto 0549/2025.</p>
+            <div class="documents-grid">
+                <div class="document-card"><div class="document-icon">📋</div><h3>Concepto urbanístico</h3><a href="#" onclick="alert('Disponible bajo solicitud'); return false;">Descargar</a></div>
+                <div class="document-card"><div class="document-icon">🗺️</div><h3>Plano catastral</h3><a href="#" onclick="alert('Disponible bajo solicitud'); return false;">Descargar</a></div>
+                <div class="document-card"><div class="document-icon">✓</div><h3>Clasificación R-3</h3><a href="#" onclick="alert('Disponible bajo solicitud'); return false;">Descargar</a></div>
+                <div class="document-card"><div class="document-icon">📄</div><h3>Libertad y tradición</h3><a href="#" onclick="alert('Disponible bajo solicitud'); return false;">Descargar</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="card">
+            <h2>¿Interesado?</h2>
+            <div class="card-sub">Complete el formulario y coordinamos una visita al predio</div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group"><label>Nombre</label><input type="text" name="nombre" required></div>
+                <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Teléfono</label><input type="tel" name="telefono" required></div>
+                <div class="form-group"><label>Empresa</label><input type="text" name="empresa"></div>
+                <div class="form-group"><label>Mensaje</label><textarea name="mensaje" required></textarea></div>
+                <button type="submit" class="form-submit">Enviar consulta</button>
+            </form>
+            <div class="contact-info"><p>Respuesta directa de los propietarios</p></div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 · Activo inmobiliario para desarrollo R-3 · Valledupar, Cesar, Colombia</p>
+</footer>
+</div>
+
+<script>
+const frameImage = document.getElementById('frameImage');
+const wrapper = document.getElementById('wrapper');
+const totalFrames = 240;
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+// ===== SCROLL: FRAMES + SCROLLSPY =====
+wrapper.addEventListener('scroll', () => {
+    // Frame scrubbing
+    const docHeight = wrapper.scrollHeight - wrapper.clientHeight;
+    const scrollPercent = Math.min(Math.max(wrapper.scrollTop / docHeight, 0), 1);
+    const frameIndex = Math.round(scrollPercent * (totalFrames - 1));
+    const paddedFrame = String(frameIndex + 1).padStart(4, '0');
+    frameImage.src = `assets/frames/frame-${paddedFrame}.jpg`;
+
+    // Scrollspy
+    let current = 'hero';
+    sections.forEach(s => {
+        if (s.getBoundingClientRect().top <= 150) current = s.id;
+    });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+}, { passive: true });
+
+// ===== NAV SMOOTH SCROLL =====
+document.querySelectorAll('.nav-links a, .nav-jump').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// ===== PRELOAD FRAMES (fluidez total) =====
+window.addEventListener('load', () => {
+    let i = 1;
+    function preloadNext() {
+        if (i > totalFrames) return;
+        const img = new Image();
+        img.onload = img.onerror = () => { i++; preloadNext(); };
+        img.src = `assets/frames/frame-${String(i).padStart(4, '0')}.jpg`;
+    }
+    preloadNext();
+});
+
+// ===== FORM =====
+function handleSubmit(e) {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const mailtoLink = `mailto:galkiewicz1@hotmail.com?subject=Consulta Lote R-3 - ${f.get('nombre')}&body=Nombre: ${f.get('nombre')}%0AEmail: ${f.get('email')}%0ATelefono: ${f.get('telefono')}%0AEmpresa: ${f.get('empresa')}%0A%0AMensaje:%0A${f.get('mensaje')}`;
+    window.location.href = mailtoLink;
+    e.target.reset();
+}
+</script>
+
+</body>
+</html>
