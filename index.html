@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;height:64px;background:var(--navy);displ
 /* ===== SECTIONS / CARDS ===== */
 section{display:flex;justify-content:flex-start;margin-bottom:70px;scroll-margin-top:88px}
 section:last-of-type{margin-bottom:0}
-.card{width:32vw;min-width:420px;max-width:560px;background:rgba(255,255,255,.18);backdrop-filter:blur(32px) saturate(1.4);-webkit-backdrop-filter:blur(32px) saturate(1.4);border:1px solid rgba(255,255,255,.25);border-radius:28px;padding:2.6rem;box-shadow:0 20px 60px rgba(0,0,0,.28);animation:cardIn .7s ease-out;color:#fff}
+.card{width:32vw;min-width:420px;max-width:560px;max-height:700px;background:rgba(255,255,255,.18);backdrop-filter:blur(32px) saturate(1.4);-webkit-backdrop-filter:blur(32px) saturate(1.4);border:1px solid rgba(255,255,255,.25);border-radius:28px;padding:1.6rem 2.2rem;box-shadow:0 20px 60px rgba(0,0,0,.28);animation:cardIn .7s ease-out;color:#fff}
 .card h2,.card h1,.card .hero-sub,.card h3{color:var(--navy)}
 .card p,.card .card-sub,.card .kpi-desc,.card .media-caption,.card .location-item p,.card .value-card p{color:rgba(255,255,255,.88)}
 .card .kpi-number{color:#fff}
@@ -51,19 +51,20 @@ section:last-of-type{margin-bottom:0}
 .card .contact-info{border-top-color:rgba(255,255,255,.2)}
 .card .contact-info p{color:rgba(255,255,255,.8)}
 .card-hero{min-height:670px;display:flex;flex-direction:column;justify-content:center}
-.hero-sevende{font-size:3.8rem;font-weight:900;color:var(--navy);letter-spacing:.04em;line-height:1;margin-bottom:.3rem}
-.hero-links{display:flex;gap:2rem;margin-top:1.2rem}
+.card-tall{max-height:none}
+.hero-sevende{font-size:3.2rem;font-weight:900;color:var(--navy);letter-spacing:.04em;line-height:1;margin-bottom:.3rem}
+.hero-links{display:flex;gap:2rem;margin-top:.8rem}
 .hero-links a{color:var(--navy);text-decoration:none;font-weight:700;font-size:.92rem;border-bottom:2px solid var(--navy);padding-bottom:.15rem;transition:.25s}
 .hero-links a:hover{opacity:.7}
 .card-hero .hero-sub{color:var(--navy)}
 @keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
 .eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--teal);text-transform:uppercase;margin-bottom:.6rem}
-h1{font-size:1.9rem;color:var(--navy);line-height:1.15;font-weight:800;margin-bottom:.55rem}
-.hero-sub{font-size:1.08rem;color:var(--navy);font-weight:700;margin-bottom:1rem;opacity:.9}
-h2{font-size:1.65rem;color:var(--navy);font-weight:800;line-height:1.2;margin-bottom:.35rem}
-.card-sub{font-size:.95rem;color:var(--muted);margin-bottom:1.3rem}
-p{font-size:.95rem;line-height:1.6;color:var(--ink)}
+h1{font-size:1.7rem;color:var(--navy);line-height:1.12;font-weight:800;margin-bottom:.4rem}
+.hero-sub{font-size:.98rem;color:var(--navy);font-weight:700;margin-bottom:.6rem;opacity:.9}
+h2{font-size:1.4rem;color:var(--navy);font-weight:800;line-height:1.2;margin-bottom:.2rem}
+.card-sub{font-size:.88rem;color:var(--muted);margin-bottom:.8rem}
+p{font-size:.9rem;line-height:1.5;color:var(--ink)}
 
 .button-group{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.4rem}
 .btn{padding:.85rem 1.7rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:.92rem;border:none;cursor:pointer;transition:.3s}
@@ -73,48 +74,48 @@ p{font-size:.95rem;line-height:1.6;color:var(--ink)}
 .btn-secondary:hover{background:rgba(13,57,128,.08);transform:translateY(-2px)}
 
 /* ===== KPI ===== */
-.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
-.kpi-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.1rem}
-.kpi-number{font-size:1.45rem;font-weight:800;color:var(--navy)}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.8rem}
+.kpi-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:14px;padding:.8rem}
+.kpi-number{font-size:1.25rem;font-weight:800;color:var(--navy)}
 .kpi-label{font-size:.74rem;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.07em;margin:.2rem 0 .45rem}
-.kpi-desc{font-size:.8rem;line-height:1.45;color:var(--muted)}
+.kpi-desc{font-size:.75rem;line-height:1.35;color:var(--muted)}
 
 /* ===== MEDIA ===== */
-.media{width:100%;border-radius:16px;overflow:hidden;margin:1.2rem 0 .5rem;box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.media{width:100%;border-radius:14px;overflow:hidden;margin:.8rem 0 .3rem;box-shadow:0 10px 30px rgba(0,0,0,.16)}
 .media img{width:100%;display:block;cursor:zoom-in}
-.media-caption{font-size:.76rem;color:#7a8a99;text-align:center;margin-bottom:1rem}
+.media-caption{font-size:.72rem;color:#7a8a99;text-align:center;margin-bottom:.6rem}
 
 /* ===== UBICACIÓN ===== */
-.location-list{display:grid;grid-template-columns:1fr;gap:.85rem;margin-top:1.2rem}
+.location-list{display:grid;grid-template-columns:1fr;gap:.5rem;margin-top:.8rem}
 .location-item{display:flex;align-items:center;gap:.7rem}
 .location-icon{width:9px;height:9px;background:var(--navy);border-radius:50%;flex-shrink:0}
-.location-item p{font-size:.92rem}
+.location-item p{font-size:.85rem}
 
 /* ===== VALOR ===== */
-.value-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.2rem}
-.value-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.3rem}
-.value-card h3{font-size:1.02rem;font-weight:800;color:var(--navy);margin-bottom:.45rem}
-.value-card p{font-size:.87rem;line-height:1.5;color:var(--muted)}
+.value-grid{display:grid;grid-template-columns:1fr;gap:.6rem;margin-top:.8rem}
+.value-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:14px;padding:.9rem}
+.value-card h3{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:.3rem}
+.value-card p{font-size:.82rem;line-height:1.4;color:var(--muted)}
 
 /* ===== GALERÍA ===== */
-.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.2rem}
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
 .gallery-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 8px 24px rgba(0,0,0,.16)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;cursor:zoom-in}
 .gallery-item:hover img{transform:scale(1.05)}
 .gallery-label{position:absolute;left:.6rem;bottom:.6rem;background:rgba(13,57,128,.88);color:#fff;font-size:.68rem;font-weight:600;padding:.3rem .6rem;border-radius:7px}
 
 /* ===== NORMATIVA ===== */
-.documents-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}
-.document-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:16px;padding:1.2rem;text-align:center}
-.document-icon{font-size:2rem;margin-bottom:.6rem}
+.documents-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem}
+.document-card{background:rgba(13,57,128,.05);border:1px solid rgba(13,57,128,.12);border-radius:14px;padding:.8rem;text-align:center}
+.document-icon{font-size:1.6rem;margin-bottom:.4rem}
 .document-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
 .document-card a{color:var(--navy);text-decoration:none;font-weight:700;font-size:.83rem}
 
 /* ===== CONTACTO ===== */
 .contact-form{margin-top:1.2rem}
-.form-group{display:flex;flex-direction:column;margin-bottom:1rem}
-.form-group label{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
-.form-group input,.form-group textarea{padding:.8rem;background:#fff;border:1px solid rgba(13,57,128,.25);border-radius:8px;font-family:inherit;font-size:.93rem;color:var(--ink)}
+.form-group{display:flex;flex-direction:column;margin-bottom:.7rem}
+.form-group label{font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
+.form-group input,.form-group textarea{padding:.6rem;background:#fff;border:1px solid rgba(13,57,128,.25);border-radius:8px;font-family:inherit;font-size:.93rem;color:var(--ink)}
 .form-group input:focus,.form-group textarea:focus{outline:2px solid var(--teal);border-color:transparent}
 .form-group textarea{resize:vertical;min-height:100px}
 .form-submit{width:100%;padding:1rem;background:var(--navy);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:700;cursor:pointer;transition:.3s}
@@ -132,12 +133,12 @@ footer p{color:#fff !important}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
 @media (max-width:768px){
-    html,body{overflow:auto;height:auto;background:#819EC3}
+    html,body{overflow:auto;height:auto;background:#7E8995}
     .video-background{position:fixed;top:64px;left:0;width:100%;height:45vh;z-index:10}
     .video-background::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:15px;background:var(--navy)}
     .frame-image{object-fit:cover}
     .content-wrapper{position:relative;height:auto;overflow:visible;z-index:1;margin-top:calc(64px + 45vh)}
-    .content-inner{padding:1.5rem 1.2rem 40px;background:#819EC3}
+    .content-inner{padding:1.5rem 1.2rem 40px;background:#7E8995}
     section{justify-content:center;margin-bottom:40px}
     .card{width:100%;min-width:auto;padding:1.8rem;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);border-radius:20px}
     .card-hero{min-height:auto}
@@ -161,7 +162,7 @@ footer p{color:#fff !important}
 .carousel-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s ease}
 .carousel-slide.active{opacity:1}
 .carousel-slide img{width:100%;height:100%;object-fit:cover}
-.carousel-dots{display:flex;justify-content:center;gap:.4rem;margin-top:.6rem}
+.carousel-dots{display:flex;justify-content:center;gap:.4rem;margin-top:.4rem}
 .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:.25s}
 .carousel-dot.active{background:var(--navy);width:22px;border-radius:4px}
 
@@ -214,11 +215,11 @@ footer p{color:#fff !important}
 <body class="loading">
 
 <!-- LOADER -->
-<div class="loader-overlay hidden" id="loader">
+<div class="loader-overlay" id="loader">
     <img src="assets/foto/Logo.png" alt="Logo" style="height:40px;margin-bottom:1.2rem">
     <div class="loader-title">Lote 34,453 m² en venta directa<br><span style="font-size:.75rem;font-weight:400;opacity:.7;letter-spacing:.04em">Valledupar, Colombia</span></div>
-    <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBar" style="width: 100%;"></div></div>
-    <div class="loader-percent" id="loaderPercent">100%</div>
+    <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBar"></div></div>
+    <div class="loader-percent" id="loaderPercent">0%</div>
 </div>
 
 <!-- LIGHTBOX -->
@@ -317,7 +318,7 @@ footer p{color:#fff !important}
 
     <!-- VALOR -->
     <section id="valor">
-        <div class="card">
+        <div class="card card-tall">
             <h2>Una oportunidad única</h2>
             <div class="card-sub">Cuatro atributos que sustentan su valor de desarrollo</div>
             <div class="media"><img src="assets/foto/lote-estacion01.png" alt="Entorno institucional"></div>
@@ -337,11 +338,11 @@ footer p{color:#fff !important}
             <h2>Potencial de desarrollo</h2>
             <div class="card-sub">Entre 500 y 700 unidades residenciales con comercio</div>
             <div class="carousel" id="potencialCarousel" onclick="openPotencialLightbox()">
-                <div class="carousel-slide"><img src="assets/foto/potencial_desarrollo.png" alt="Render conceptual"></div>
+                <div class="carousel-slide active"><img src="assets/foto/potencial_desarrollo.png" alt="Render conceptual"></div>
                 <div class="carousel-slide"><img src="assets/foto/desarrollo.png" alt="Desarrollo urbano"></div>
                 <div class="carousel-slide"><img src="assets/foto/desarrollo01.png" alt="Vista desarrollo 1"></div>
                 <div class="carousel-slide"><img src="assets/foto/desarrollo02.png" alt="Vista desarrollo 2"></div>
-                <div class="carousel-slide active"><img src="assets/foto/desarrollo03.png" alt="Vista desarrollo 3"></div>
+                <div class="carousel-slide"><img src="assets/foto/desarrollo03.png" alt="Vista desarrollo 3"></div>
                 <div class="carousel-slide"><img src="assets/foto/desarrollo04.png" alt="Vista desarrollo 4"></div>
             </div>
             <div class="carousel-dots" id="carouselDots"></div>
@@ -448,14 +449,14 @@ footer p{color:#fff !important}
 <script>
 const frameImage = document.getElementById('frameImage');
 const wrapper = document.getElementById('wrapper');
-const totalFrames = 240;
+const totalFrames = 235;
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
 const loader = document.getElementById('loader');
 const loaderBar = document.getElementById('loaderBar');
 const loaderPercent = document.getElementById('loaderPercent');
 
-const PRELOAD_THRESHOLD = 0.45; // 45% antes de liberar
+const PRELOAD_THRESHOLD = 0.90; // 45% antes de liberar
 const frameCache = [];
 let loaded = 0;
 let ready = false;
@@ -464,7 +465,7 @@ function isMobile() { return window.innerWidth <= 768; }
 
 // ===== PRELOAD CON PROGRESO =====
 function preloadFrames() {
-    const concurrent = 6;
+    const concurrent = 10;
     let next = 1;
 
     function loadOne() {
