@@ -95,7 +95,7 @@ nav { position:fixed; top:0; left:0; right:0; height:64px; background:var(--navy
 /* ==============================================
    CONTENT
    ============================================== */
-.content { max-width:640px; padding:104px 1.5rem 70px; }
+.content { max-width:460px; padding:104px 1.5rem 70px; }
 
 /* ==============================================
    SECTIONS
@@ -345,7 +345,7 @@ footer p { color:var(--white) !important; }
 <div class="logo-badge"><img src="assets/foto/Logo2.png" alt="Hermanos Dangond Castro &amp; Hijos"></div>
 
 <!-- VIDEO BACKGROUND -->
-<div class="video-bg"><img id="frameImage" src="assets/frames/frame-0001.jpg" alt="Vista aérea del lote"></div>
+<div class="video-bg"><img id="frameImage" src="assets/frames/frame_0001.png" alt="Vista aérea del lote"></div>
 
 <!-- MOBILE BAR -->
 <div class="mobile-bar"></div>
@@ -514,12 +514,12 @@ footer p { color:var(--white) !important; }
    CONFIG
    ============================================== */
 const CONFIG = {
-  totalFrames: 235,
-  preloadThreshold: 0.90,
+  totalFrames: 240,
+  preloadThreshold: 0.50,
   concurrentLoads: 10,
   carouselInterval: 3500,
   contactEmail: 'galkiewicz1@hotmail.com',
-  framePath: idx => 'assets/frames/frame-' + String(idx).padStart(4,'0') + '.jpg',
+  framePath: idx => 'assets/frames/frame_' + String(idx).padStart(4,'0') + '.png',
   catalog: {
     'Referencia_lote_02.png': { title:'Mapa catastral', desc:'Delimitación del predio A·B·C·D' },
     'lote-estacion01.png': { title:'Entorno institucional', desc:'Vía perimetral — Policía Metropolitana' },
@@ -561,28 +561,55 @@ const App = (() => {
   /* =====================
      LOADER / PRELOAD
      ===================== */
+  const FRAME_TIMEOUT = 8000; // 8s máximo por frame
+
   function preloadFrames() {
     let next = 1;
     function loadOne() {
       if (next > CONFIG.totalFrames) return;
       const idx = next++;
       const img = new Image();
-      img.onload = img.onerror = () => {
-        frameCache[idx] = img;
+      let done = false;
+
+      function onDone() {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        frameCache[idx] = img.complete && img.naturalWidth > 0 ? img : null;
         loaded++;
         const pct = Math.round((loaded / CONFIG.totalFrames) * 100);
         loaderBar.style.width = pct + '%';
         loaderPercent.textContent = pct + '%';
         if (!ready && loaded >= Math.floor(CONFIG.totalFrames * CONFIG.preloadThreshold)) {
-          ready = true;
-          loader.classList.add('hidden');
-          document.body.classList.remove('loading');
+          releaseLoader();
         }
         loadOne();
-      };
+      }
+
+      img.onload = onDone;
+      img.onerror = onDone;
+      const timer = setTimeout(onDone, FRAME_TIMEOUT);
       img.src = CONFIG.framePath(idx);
     }
     for (let c = 0; c < CONFIG.concurrentLoads; c++) loadOne();
+
+    // Botón "Entrar" aparece después de 12 segundos
+    setTimeout(() => {
+      if (!ready) {
+        const skipBtn = document.createElement('button');
+        skipBtn.textContent = 'Entrar al sitio';
+        skipBtn.style.cssText = 'margin-top:1.5rem;padding:.7rem 2rem;background:var(--teal);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.3s';
+        skipBtn.addEventListener('click', releaseLoader);
+        loader.appendChild(skipBtn);
+      }
+    }, 12000);
+  }
+
+  function releaseLoader() {
+    if (ready) return;
+    ready = true;
+    loader.classList.add('hidden');
+    document.body.classList.remove('loading');
   }
 
   /* =====================
