@@ -116,17 +116,40 @@ p{font-size:.95rem;line-height:1.6;color:var(--ink)}
 
 footer{position:relative;z-index:10;background:var(--navy);color:#fff;padding:1.8rem 2rem;text-align:center;font-size:.83rem}
 
-@media (max-width:1024px){
-    .content-inner{padding:96px 1.2rem 70px}
-    .card{width:100%;min-width:auto;padding:1.8rem}
+@media (max-width:768px){
+    html,body{overflow:auto;height:auto}
+    .video-background{position:fixed;top:64px;left:0;width:100%;height:45vh;z-index:10}
+    .frame-image{object-fit:cover}
+    .content-wrapper{position:relative;height:auto;overflow:visible;z-index:1;margin-top:calc(64px + 45vh)}
+    .content-inner{padding:1.5rem 1.2rem 40px;background:#0b1e36}
+    section{justify-content:center;margin-bottom:40px}
+    .card{width:100%;min-width:auto;padding:1.8rem;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);border-radius:20px}
+    .card-hero{min-height:auto}
     h1{font-size:1.55rem}
     h2{font-size:1.4rem}
+    nav{z-index:200}
     nav{padding:0 1rem;gap:.8rem}
     .nav-brand{font-size:.82rem}
+    .nav-links a{font-size:.75rem;padding:.4rem .55rem}
+    footer{position:relative;z-index:1}
 }
+/* ===== LOADER ===== */
+.loader-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0f1a;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease, visibility .6s ease}
+.loader-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-title{color:#fff;font-size:1.1rem;font-weight:700;letter-spacing:.08em;margin-bottom:2rem;text-align:center}
+.loader-bar-track{width:240px;height:4px;background:rgba(255,255,255,.12);border-radius:4px;overflow:hidden}
+.loader-bar-fill{width:0%;height:100%;background:var(--teal);border-radius:4px;transition:width .15s linear}
+.loader-percent{color:rgba(255,255,255,.6);font-size:.85rem;font-weight:600;margin-top:1rem;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+    <div class="loader-title">CARGANDO EXPERIENCIA</div>
+    <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBar"></div></div>
+    <div class="loader-percent" id="loaderPercent">0%</div>
+</div>
 
 <!-- FRAMES BACKGROUND -->
 <div class="video-background">
@@ -312,23 +335,73 @@ const wrapper = document.getElementById('wrapper');
 const totalFrames = 240;
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-links a');
+const loader = document.getElementById('loader');
+const loaderBar = document.getElementById('loaderBar');
+const loaderPercent = document.getElementById('loaderPercent');
+
+const PRELOAD_THRESHOLD = 0.45; // 45% antes de liberar
+const frameCache = [];
+let loaded = 0;
+let ready = false;
+
+function isMobile() { return window.innerWidth <= 768; }
+
+// ===== PRELOAD CON PROGRESO =====
+function preloadFrames() {
+    const concurrent = 6;
+    let next = 1;
+
+    function loadOne() {
+        if (next > totalFrames) return;
+        const idx = next++;
+        const img = new Image();
+        img.onload = img.onerror = () => {
+            frameCache[idx] = img;
+            loaded++;
+            const pct = Math.round((loaded / totalFrames) * 100);
+            loaderBar.style.width = pct + '%';
+            loaderPercent.textContent = pct + '%';
+
+            if (!ready && loaded >= Math.floor(totalFrames * PRELOAD_THRESHOLD)) {
+                ready = true;
+                loader.classList.add('hidden');
+            }
+            loadOne();
+        };
+        img.src = `assets/frames/frame-${String(idx).padStart(4, '0')}.jpg`;
+    }
+
+    for (let c = 0; c < concurrent; c++) loadOne();
+}
 
 // ===== SCROLL: FRAMES + SCROLLSPY =====
-wrapper.addEventListener('scroll', () => {
-    // Frame scrubbing
-    const docHeight = wrapper.scrollHeight - wrapper.clientHeight;
-    const scrollPercent = Math.min(Math.max(wrapper.scrollTop / docHeight, 0), 1);
-    const frameIndex = Math.round(scrollPercent * (totalFrames - 1));
-    const paddedFrame = String(frameIndex + 1).padStart(4, '0');
-    frameImage.src = `assets/frames/frame-${paddedFrame}.jpg`;
+function handleScroll() {
+    if (!ready) return;
+    let scrollPercent;
+    if (isMobile()) {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollPercent = Math.min(Math.max(window.scrollY / docHeight, 0), 1);
+    } else {
+        const docHeight = wrapper.scrollHeight - wrapper.clientHeight;
+        scrollPercent = Math.min(Math.max(wrapper.scrollTop / docHeight, 0), 1);
+    }
 
-    // Scrollspy
+    const frameIndex = Math.round(scrollPercent * (totalFrames - 1)) + 1;
+    if (frameCache[frameIndex]) {
+        frameImage.src = frameCache[frameIndex].src;
+    } else {
+        frameImage.src = `assets/frames/frame-${String(frameIndex).padStart(4, '0')}.jpg`;
+    }
+
     let current = 'hero';
     sections.forEach(s => {
         if (s.getBoundingClientRect().top <= 150) current = s.id;
     });
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-}, { passive: true });
+}
+
+wrapper.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener('scroll', handleScroll, { passive: true });
 
 // ===== NAV SMOOTH SCROLL =====
 document.querySelectorAll('.nav-links a, .nav-jump').forEach(link => {
@@ -339,18 +412,6 @@ document.querySelectorAll('.nav-links a, .nav-jump').forEach(link => {
     });
 });
 
-// ===== PRELOAD FRAMES (fluidez total) =====
-window.addEventListener('load', () => {
-    let i = 1;
-    function preloadNext() {
-        if (i > totalFrames) return;
-        const img = new Image();
-        img.onload = img.onerror = () => { i++; preloadNext(); };
-        img.src = `assets/frames/frame-${String(i).padStart(4, '0')}.jpg`;
-    }
-    preloadNext();
-});
-
 // ===== FORM =====
 function handleSubmit(e) {
     e.preventDefault();
@@ -359,6 +420,9 @@ function handleSubmit(e) {
     window.location.href = mailtoLink;
     e.target.reset();
 }
+
+// ===== INICIAR =====
+preloadFrames();
 </script>
 
 </body>
