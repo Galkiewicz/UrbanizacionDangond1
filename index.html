@@ -70,6 +70,7 @@ body.loading { overflow:hidden !important; height:100% !important; touch-action:
 nav { position:fixed; top:0; left:0; right:0; height:64px; background:var(--navy); display:flex; align-items:center; justify-content:space-between; gap:1.5rem; padding:0 2rem; z-index:var(--z-nav); }
 .nav-logo { height:44px; flex-shrink:0; margin-left:-8px; }
 .nav-logo-mobile { display:none; }
+.nav-sub { color:rgba(255,255,255,.7); font-size:.7rem; font-weight:500; white-space:nowrap; }
 .nav-links { display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
 .nav-links::-webkit-scrollbar { display:none; }
 .nav-links a { color:var(--text-soft); text-decoration:none; font-size:.82rem; font-weight:600; padding:.45rem .7rem; border-radius:8px; white-space:nowrap; transition:.25s; }
@@ -286,6 +287,7 @@ footer p { color:var(--white) !important; }
   .nav-logo { height:32px; }
   .nav-logo-desktop { display:none; }
   .nav-logo-mobile { display:block; }
+  .nav-sub { display:none; }
   .hamburger { display:flex; }
   .nav-links { position:fixed; top:64px; left:0; right:0; background:var(--navy); flex-direction:column; padding:1rem 1.5rem 1.5rem; gap:.2rem; transform:translateY(-120%); transition:transform .35s ease; z-index:var(--z-dropdown); }
   .nav-links.open { transform:translateY(0); }
@@ -308,7 +310,7 @@ footer p { color:var(--white) !important; }
 <!-- LOADER -->
 <div class="loader-overlay" id="loader">
   <img src="assets/foto/Logo.png" alt="Logo" class="loader-logo">
-  <div class="loader-title">Lote 34,453 m² en venta directa<br><span>Valledupar, Colombia</span></div>
+  <div class="loader-title">Lote 34,453 m² en venta directa<br><span>Valledupar, Barrio San Fernando · Colombia</span></div>
   <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBar"></div></div>
   <div class="loader-percent" id="loaderPercent">0%</div>
 </div>
@@ -351,7 +353,7 @@ footer p { color:var(--white) !important; }
 
 <!-- NAVBAR -->
 <nav>
-  <img src="assets/foto/Logo2.png" alt="Hermanos Dangond Castro &amp; Hijos" class="nav-logo nav-logo-desktop">
+  <img src="assets/foto/Logo2.png" alt="Hermanos Dangond Castro &amp; Hijos" class="nav-logo nav-logo-desktop"><span class="nav-sub">Lote en Valledupar · Barrio San Fernando</span>
   <img src="assets/foto/Logo.png" alt="Hermanos Dangond Castro &amp; Hijos" class="nav-logo nav-logo-mobile">
   <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -377,7 +379,7 @@ footer p { color:var(--white) !important; }
     <div class="card card-hero">
       <div class="hero-sevende">SE VENDE</div>
       <h1>ESPECTACULAR LOTE DIRECTAMENTE</h1>
-      <div class="hero-sub">34,453 m² | Activo para desarrollo R-3</div>
+      <div class="hero-sub">34,453 m² · Valledupar, Barrio San Fernando · R-3</div>
       <p>Suelo urbanizable con concepto normativo vigente, infraestructura consolidada y viabilidad confirmada. Una oportunidad única para transformar el espacio urbano de Valledupar.</p>
       <div class="hero-links">
         <a href="#contacto" class="nav-jump">Solicitar información</a>
@@ -505,7 +507,7 @@ footer p { color:var(--white) !important; }
   </section>
 
 </div>
-<footer><p>&copy; 2026 · Hermanos Dangond Castro &amp; Hijos · Activo inmobiliario para desarrollo R-3 · Valledupar, Cesar, Colombia</p></footer>
+<footer><p>&copy; 2026 · Hermanos Dangond Castro &amp; Hijos · Lote en Valledupar, Barrio San Fernando · Activo inmobiliario para desarrollo R-3 · Cesar, Colombia</p></footer>
 </div>
 
 <script>
